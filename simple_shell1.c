@@ -22,8 +22,6 @@ char *prompt()
 {
     char *cmnd;
     size_t cmndsize = 128;
-    
-
     cmnd = (char *)malloc(128 * sizeof(char));
     printf("$ ");
     getline(&cmnd, &cmndsize, stdin);
@@ -39,10 +37,10 @@ char *prompt()
 char **split(char *str)
 {
     char *token;
-    token = strtok(str, delim);
     char **total;
-    total = malloc(64 * sizeof(char *));
     int i;
+    token = strtok(str, delim);
+    total = malloc(64 * sizeof(char *));
     i = 0;
 
     while (token != NULL)

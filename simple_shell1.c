@@ -9,13 +9,8 @@
 #define delim " \n"
 
 /**
- * main -
- * @prompt: to write a command
- * @split: splits the command into argument
- * @check: checks if the command is excutable
- * @execute: executes the command
- * @loop: loops
- * Return: 0
+ * prompt - prints prompt and gets user input
+ * Return: char* to user input
  */
 
 char *prompt()
@@ -32,6 +27,11 @@ char *prompt()
 	}
 	return (cmnd);
 }
+/**
+ * split - splits string using space char
+ * @str: string to be splitted
+ * Return: char ** or char* array of splitted string
+ */
 
 
 char **split(char *str)
@@ -53,6 +53,11 @@ char **split(char *str)
 	return (total);
 }
 
+/**
+ * execute - executes command after spliting has been done
+ * @argu: arguments array for execution
+ * Return: int status of the executed command
+ */
 
 int execute(char **argu)
 {
@@ -75,6 +80,10 @@ int execute(char **argu)
 	}
 	return (0);
 }
+/**
+ * loop - main loop for shell
+ * Return: void so nothing
+ */
 
 void loop(void)
 {
@@ -88,6 +97,11 @@ void loop(void)
 		status = execute(args);
 	} while (status != -1);
 }
+/**
+ * main - entry to program
+ * Return: int
+ */
+
 int main(void)
 {
 	loop();

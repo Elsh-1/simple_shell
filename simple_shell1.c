@@ -22,6 +22,7 @@ char *prompt()
 {
 	char *cmnd;
 	size_t cmndsize = 128;
+
 	cmnd = (char *)malloc(128 * sizeof(char));
 	printf("$ ");
 	getline(&cmnd, &cmndsize, stdin);
@@ -38,6 +39,7 @@ char **split(char *str)
 	char *token;
 	char **total;
 	int i;
+
 	token = strtok(str, delim);
 	total = malloc(64 * sizeof(char *));
 	i = 0;
@@ -55,6 +57,7 @@ char **split(char *str)
 int execute(char **argu)
 {
 	pid_t pid;
+
 	if (access(argu[0], X_OK))
 	{
 		perror("file not found");
@@ -78,12 +81,12 @@ void loop(void)
 	int status;
 	char *cmd;
 	char **args;
+
 	do {
 		cmd = prompt();
 		args = split(cmd);
 		status = execute(args);
 	} while (status != -1);
-	return;
 }
 int main(void)
 {

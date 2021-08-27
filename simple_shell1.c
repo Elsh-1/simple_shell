@@ -29,7 +29,6 @@ char *prompt()
 	{
 		exit(-1);
 	}
-	
 	return (cmnd);
 }
 
@@ -42,7 +41,6 @@ char **split(char *str)
 	token = strtok(str, delim);
 	total = malloc(64 * sizeof(char *));
 	i = 0;
-	
 	while (token != NULL)
 	{
 		total[i] = token;
@@ -84,7 +82,7 @@ void loop(void)
 		cmd = prompt();
 		args = split(cmd);
 		status = execute(args);
-       	} while (status != -1);
+	} while (status != -1);
 	return;
 }
 int main(void)

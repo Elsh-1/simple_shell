@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <sys/stat.h>
+#include "inc.h"
 
 #define delim " \n"
 
@@ -62,8 +56,14 @@ char **split(char *str)
 int execute(char **argu)
 {
 	pid_t pid;
+	char *bin_path;
 
-	if (access(argu[0], X_OK))
+	bin_path = malloc(246 * sizeof(char));
+	if (_strncmp("/", argu[0], 1))
+	{
+		bin_path = _path(argu[0]);
+		argu[0] = bin_path;
+	} else if (access(argu[0], X_OK))
 	{
 		perror("file not found");
 		return (1);

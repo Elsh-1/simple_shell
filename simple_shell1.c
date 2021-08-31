@@ -13,7 +13,10 @@ char *prompt()
 	size_t cmndsize = 128;
 
 	cmnd = (char *)malloc(128 * sizeof(char));
-	printf("$ ");
+	if (isatty(fileno(stdin)))
+	{
+		printf("$ ");
+	}
 	getline(&cmnd, &cmndsize, stdin);
 	if (feof(stdin))
 	{

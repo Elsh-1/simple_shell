@@ -107,6 +107,9 @@ void loop(void)
 
 int main(void)
 {
+	if (!isatty(fileno(stdin)))
+		handle_piped();
+
 	loop();
 	return (0);
 }

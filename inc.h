@@ -18,6 +18,10 @@ char *search(char *bin, char **path_arr);
 char **split_path(char *str);
 char *_path(char *bin_name);
 char *_strcat(char *dest, const char *src);
+void handle_piped(void);
+
+char **split(char *str);
+int execute(char **argu);
 
 
 #endif

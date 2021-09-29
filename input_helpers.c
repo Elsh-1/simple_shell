@@ -1,7 +1,6 @@
 /*
  * File: input_helpers.c
- * Authors: Ukonu, Divine Chisom
- *          Nobert Patrick
+ * Author:Elshaday
  */
 
 #include "shell.h"
